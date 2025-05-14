@@ -1,98 +1,73 @@
-# NeuroScan - Brain Tumor Detection
+# NeuroScan - Empowering Brain Tumor Detection
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-%E2%98%AB%EF%B8%8F-brightgreen.svg)](https://flask.palletsprojects.com/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.x-yellowgreen.svg)](https://opencv.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-NeuroScan-brightgreen)](https://neuroscan.mystichqra.me/)
 ![Project Demo](link_to_your_demo_gif_or_screenshot_here)
 
 ## Overview
 
-NeuroScan is a web application built with Flask that utilizes a deep learning model (trained with TensorFlow/Keras) to classify brain tumors from MRI scans. It allows users to upload an image, receive a prediction of the tumor type (glioma, meningioma, pituitary, or no tumor), along with a confidence score and a detailed analysis of the probabilities for each class. Additionally, it features the generation of Grad-CAM heatmaps to visualize the regions of the input image that were most important for the model's prediction.
+NeuroScan is a sophisticated web application engineered to assist in the detection and classification of brain tumors from Magnetic Resonance Imaging (MRI) scans. Built with the robust and flexible Flask microframework in Python, NeuroScan leverages the power of deep learning, utilizing a TensorFlow/Keras-trained model to provide accurate and insightful predictions. The application offers users a seamless experience in uploading MRI images and receiving comprehensive diagnostic support, including tumor classification (glioma, meningioma, pituitary, or no tumor), prediction confidence levels, and a detailed breakdown of the model's assessment across all tumor types.
 
-## Key Features
+Furthermore, NeuroScan incorporates Grad-CAM (Gradient-weighted Class Activation Mapping) technology, generating intuitive heatmaps that visually highlight the specific regions within the MRI scan that significantly influenced the model's classification decision. This interpretability feature enhances trust and understanding in the AI-driven diagnostic process. The application also includes a functionality to explore random images from a curated dataset, facilitating continuous evaluation and demonstration of the model's capabilities.
 
-* **Image Upload and Prediction:** Users can upload MRI scans in common image formats (PNG, JPG, JPEG, BMP) for classification.
-* **Real-time Results:** The application provides immediate predictions with confidence scores.
-* **Detailed Analysis:** Displays the probability for each of the four brain tumor classes.
-* **Grad-CAM Heatmap Visualization:** Generates and displays heatmaps highlighting relevant regions in the MRI scan.
-* **Random Image Exploration:** Allows users to fetch and predict on random images from a predefined dataset.
-* **Clear and User-Friendly Interface:** A simple web interface built with HTML and potentially CSS.
+**Access the live application:** [NeuroScan](https://neuroscan.mystichqra.me/)
 
-## Technologies Used
+## Key Capabilities
 
-* **Python:** The primary programming language.
-* **Flask:** A micro web framework for building the web application.
-* **TensorFlow/Keras:** A powerful library for building and training the deep learning model.
-* **OpenCV (cv2):** Used for image processing tasks (resizing, loading).
-* **NumPy:** For numerical operations and array manipulation.
-* **Werkzeug:** Utilities for handling file uploads securely.
-* **Pillow (PIL):** For image format validation.
-* **Base64:** For encoding images for display in the web interface.
+* **Intelligent Image Analysis:** Enables users to upload MRI scans in various standard image formats (PNG, JPG, JPEG, BMP) for automated analysis.
+* **High-Accuracy Prediction:** Delivers precise classifications of brain tumor types with associated confidence scores, aiding in preliminary diagnosis.
+* **Granular Diagnostic Insights:** Presents a detailed analysis of the model's probability assessment for each potential tumor class, offering a comprehensive view.
+* **Visualized Decision Support:** Generates Grad-CAM heatmaps, providing a visual explanation of the model's focus areas within the MRI image.
+* **Dataset Exploration:** Features an option to analyze random MRI images from an integrated dataset, showcasing the model's generalization ability.
+* **Intuitive User Interface:** Designed with a clean and user-friendly web interface to ensure ease of interaction for medical professionals and researchers.
 
-## Setup and Installation
+## Core Technologies
 
-1.  **Clone the repository:**
+* **Python:** The foundational programming language, ensuring scalability and maintainability.
+* **Flask:** A lightweight and adaptable web framework, providing a robust backend for the application.
+* **TensorFlow/Keras:** A leading deep learning library, empowering the development and deployment of the sophisticated classification model.
+* **OpenCV (cv2):** Essential for efficient image loading, preprocessing, and manipulation.
+* **NumPy:** The cornerstone for numerical computations and efficient array handling.
+* **Werkzeug:** Provides critical utilities for secure file uploads and HTTP request/response handling.
+* **Pillow (PIL):** Used for robust image format validation and handling.
+* **Base64:** Facilitates the seamless embedding of images within the web interface for visualization.
+
+## Getting Started
+
+Follow these steps to set up and run NeuroScan locally:
+
+1.  **Clone the Repository:**
     ```bash
     git clone <your_github_repository_link>
     cd NeuroScan
     ```
 
-2.  **Install the required dependencies:**
+2.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
-    *(Ensure you create a `requirements.txt` file - see section below)*
+    *(Ensure your `requirements.txt` file accurately lists all project dependencies.)*
 
-3.  **Download the trained model:**
-    * Place your trained brain tumor classification model file (e.g., `brain_tumor_classifier.h5`) in the project's root directory, or update the `MODEL_PATH` in the Flask application (`app.config['MODEL_PATH']`).
+3.  **Obtain the Trained Model:**
+    * Place your trained brain tumor classification model file (e.g., `brain_tumor_classifier.h5`) in the root directory of the project. Alternatively, update the `MODEL_PATH` configuration within the `app.py` file.
 
-4.  **Organize the dataset (if you want to use the random image feature):**
-    * Create a directory named `Dataset` in the project's root.
-    * Inside `Dataset`, create two subdirectories: `Training` and `Testing`.
-    * Within `Training` and `Testing`, create four subdirectories corresponding to the class names: `glioma`, `meningioma`, `notumor`, and `pituitary`.
-    * Place your MRI scan images into the respective class directories.
+4.  **Organize the Dataset (for random image functionality):**
+    * Create a directory named `Dataset` at the project's root.
+    * Inside `Dataset`, create two primary subdirectories: `Training` and `Testing`.
+    * Within both `Training` and `Testing`, establish four class-specific subdirectories: `glioma`, `meningioma`, `notumor`, and `pituitary`.
+    * Populate these class directories with the corresponding MRI scan images.
 
-5.  **Set environment variables (optional):**
-    * You can optionally set environment variables for `UPLOAD_FOLDER`, `DATASET_PATH`, and `MODEL_PATH` if you prefer not to hardcode them in the Flask app.
+5.  **Configure Environment Variables (Optional):**
+    * For enhanced flexibility, you can set environment variables such as `UPLOAD_FOLDER`, `DATASET_PATH`, and `MODEL_PATH` instead of hardcoding them in `app.py`.
 
-6.  **Run the Flask application:**
+6.  **Launch the Application:**
     ```bash
     python app.py
     ```
-    * The application should now be accessible at `http://127.0.0.1:5050/` (or the port you configured).
+    * The NeuroScan web application will typically be accessible at `http://127.0.0.1:5050/`.
 
-## Usage
-
-1.  Open your web browser and navigate to the application's URL.
-2.  **Upload Image:** Click on the "Choose File" button and select an MRI scan image.
-3.  **Predict:** Click the "Predict" button to get the classification results, including the predicted tumor type, confidence score, and detailed analysis.
-4.  **Heatmap:** If the prediction is successful, a Grad-CAM heatmap will be displayed below the results, highlighting the important regions.
-5.  **Random Image:** Click the "Fetch Random Image" button to load and predict on a random image from the `Dataset`.
-
-## Project Structure
-
-NeuroScan/
-├── app.py             # The main Flask application file
-├── templates/
-│   └── NeuroScan.html # The HTML template for the web interface
-├── static/
-│   └── style.css      # (Optional) CSS file for styling
-├── uploads/           # Directory to store uploaded images temporarily
-├── Dataset/           # (Optional) Directory containing the image dataset
-│   ├── Training/
-│   │   ├── glioma/
-│   │   ├── meningioma/
-│   │   ├── notumor/
-│   │   └── pituitary/
-│   └── Testing/
-│       ├── glioma/
-│       ├── meningioma/
-│       ├── notumor/
-│       └── pituitary/
-├── brain_tumor_classifier.h5 # The trained deep learning model
-├── requirements.txt   # List of Python dependencies
-├── README.md          # This file
-└── LICENSE            
-
+## Application Structure
