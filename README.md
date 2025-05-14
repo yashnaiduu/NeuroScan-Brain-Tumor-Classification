@@ -72,3 +72,27 @@ NeuroScan is a web application built with Flask that utilizes a deep learning mo
 5.  **Random Image:** Click the "Fetch Random Image" button to load and predict on a random image from the `Dataset`.
 
 ## Project Structure
+
+NeuroScan/
+├── app.py             # The main Flask application file
+├── templates/
+│   └── NeuroScan.html # The HTML template for the web interface
+├── static/
+│   └── style.css      # (Optional) CSS file for styling
+├── uploads/           # Directory to store uploaded images temporarily
+├── Dataset/           # (Optional) Directory containing the image dataset
+│   ├── Training/
+│   │   ├── glioma/
+│   │   ├── meningioma/
+│   │   ├── notumor/
+│   │   └── pituitary/
+│   └── Testing/
+│       ├── glioma/
+│       ├── meningioma/
+│       ├── notumor/
+│       └── pituitary/
+├── brain_tumor_classifier.h5 # The trained deep learning model
+├── requirements.txt   # List of Python dependencies
+├── README.md          # This file
+└── LICENSE            
+
